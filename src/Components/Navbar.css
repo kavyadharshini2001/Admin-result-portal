@@ -1,0 +1,31 @@
+.navedit{
+   background-image: linear-gradient(to right top, #069caa, #00999d, #00958f, #009180, #108c70);
+   height: 100px;
+   align-items: center;
+  text-align: center;
+   color: white;
+   font-weight: 500;
+   font-size: 30px;
+}
+.topedit{
+   font-weight: 400;
+   font-size: 20px;
+   margin-top: 10px;
+ 
+}
+.loginedit{
+   
+   padding: 12px 20px;
+   background-image: linear-gradient(to right top, #069caa, #00999d, #00958f, #009180, #108c70);
+   display:flexbox;
+   border: 1px solid #ccc;
+   box-sizing: border-box;
+}
+.btnedit{
+   background-image: linear-gradient(to right top, #069caa, #00999d, #00958f, #009180, #108c70);
+   border: 2px solid
+}
+.design{
+   background-image: linear-gradient(to right top, #069caa, #00999d, #00958f, #009180, #108c70);
+
+}
