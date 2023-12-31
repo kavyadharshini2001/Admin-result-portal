@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './Media-query-studentsdata.css';
 
 function Studentsdata() {
     const navigate = useNavigate();
@@ -66,11 +67,11 @@ function Studentsdata() {
 
   return (
     <>
-      <div className="container w-50 m-auto ">
+      <div className="container w-50 m-auto col-sm-4 col-md-6 col-lg-12 ">
         <h3>Create Student</h3>
 
         <div className="row">
-          <div className="col-6">
+          <div className="col-sm-4 col-md-6 col-lg-6">
             <label class="form-label">First Name</label>
             <input
               type="text"
@@ -80,7 +81,7 @@ function Studentsdata() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div className="col-6">
+          <div className="col-sm-4 col-md-6 col-lg-6">
             <label class="form-label">Maths</label>
             <input
               type="number"
@@ -90,7 +91,7 @@ function Studentsdata() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div className="col-6">
+          <div className="col-sm-4 col-md-6 col-lg-6">
             <label class="form-label">Physics</label>
             <input
               type="number"
@@ -100,7 +101,7 @@ function Studentsdata() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div className="col-6">
+          <div className="col-sm-4 col-md-6 col-lg-6">
             <label class="form-label">Chemistry</label>
             <input
               type="number"
@@ -110,7 +111,7 @@ function Studentsdata() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div className="col-6">
+          <div className="col-sm-4 col-md-6 col-lg-6">
             <label class="form-label">E-graphics</label>
             <input
               type="number"
@@ -120,7 +121,7 @@ function Studentsdata() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div className="col-6">
+          <div className="col-sm-4 col-md-6 col-lg-6">
             <label class="form-label">Total</label>
             <input
               type="number"
@@ -140,7 +141,7 @@ function Studentsdata() {
           </button>
         </div>
       </div>
-      <div className="container w-75 m-auto mt-5">
+      <div className="container w-75 m-auto mt-5  vertical-table">
         <table class="table">
           <thead>
             <tr>

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import'./Media-query-stulist.css';
 
 
 import {
@@ -88,7 +89,7 @@ function Studentlist() {
           + Add Student
         </button>
       </div>
-      <div className="w-80 m-auto">
+      <div className="w-80 m-auto table-container">
       <table class="table">
         <thead>
           <tr className="table-warning ">

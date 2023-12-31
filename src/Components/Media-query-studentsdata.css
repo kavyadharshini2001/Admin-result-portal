@@ -1,0 +1,88 @@
+/* Default styles go here */
+
+/* Media query for screens with width between 400px and 900px */
+/* Default styles go here */
+
+/* Media query for screens with width between 400px and 900px */
+/* Default styles go here */
+
+/* Media query for screens with width between 400px and 900px */
+/* Default styles go here */
+
+/* Media query for screens with width between 400px and 900px */
+/* Default styles go here */
+
+/* Media query for screens with width between 400px and 900px */
+@media screen and (min-width: 400px) and (max-width: 900px) {
+    .container.w-50 {
+      width: 100%;
+      max-width: none;
+    }
+  
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    .col-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 10px; /* Adjust as needed */
+    }
+  
+    .text-end {
+      text-align: center;
+    }
+  
+    html,
+    body {
+      overflow-x: hidden;
+    }
+  
+    .vertical-table {
+      overflow-x: auto;
+      max-width: 100%;
+    }
+  
+    .table {
+      width: 100%;
+      white-space: nowrap;
+    }
+  }
+  
+/* Media query for screens with width between 400px and 900px */
+/* Media query for screens with width between 400px and 900px */
+@media screen and (min-width: 400px) and (max-width: 900px) {
+    .container.w-50 {
+      width: 100%;
+      max-width: none;
+    }
+  
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    .col-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 10px; /* Adjust as needed */
+    }
+  
+    .text-end {
+      text-align: center;
+    }
+  
+    .table-responsive {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+  
+    .table {
+      width: 100%;
+    }
+  }
+  
