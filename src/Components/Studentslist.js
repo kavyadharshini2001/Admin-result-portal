@@ -100,7 +100,7 @@ function Studentlist() {
             <th scope="col">Chemistry</th>
             <th scope="col">E-graphics</th>
             <th scope="col">Total</th>
-            <th scope="col" className="d-flex justify-content-center">Action</th>
+            <th scope="col" className=" ">Action</th>
           </tr>
         </thead>
         <tbody>

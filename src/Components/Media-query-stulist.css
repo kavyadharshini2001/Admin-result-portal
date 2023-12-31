@@ -1,4 +1,4 @@
-/* Media query for screens with width between 400px and 900px */
+
 @media screen and (min-width: 400px) and (max-width: 900px) {
     .w-80 {
       width: 100%;
