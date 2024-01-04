@@ -8,6 +8,7 @@ import Login from "./Components/Login";
 import { Toaster } from "react-hot-toast";
 import Studentsdata from "./Components/Studentsdata";
 import Studentslist from "./Components/Studentslist";
+import Viewdata from "./Components/Viewdata";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <Route path="/login" element={<Login/>}/>
     <Route path="/studentsdata" element={<Studentsdata/>}/>
     <Route path="/studentslist" element={<Studentslist/>}/>
+    <Route path="/viewdata/:id" element={<Viewdata/>}/>
     
    </Routes>
    <Toaster/>

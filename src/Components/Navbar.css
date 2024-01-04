@@ -6,6 +6,7 @@
    color: white;
    font-weight: 500;
    font-size: 30px;
+   justify-content: center;
 }
 .topedit{
    font-weight: 400;
@@ -29,3 +30,25 @@
    background-image: linear-gradient(to right top, #069caa, #00999d, #00958f, #009180, #108c70);
 
 }
+
+@media screen and (min-width: 390px) and (max-width: 900px) {
+   .container.w-80 {
+     width: 80%;
+    
+     
+     max-width: none;
+   
+     background-image: linear-gradient(to right top, #069caa, #00999d, #00958f, #009180, #108c70); 
+   }
+ 
+   .p-5 {
+     padding: 10px; 
+    
+   }
+   .navedit{
+      font-size: 25px;
+      padding: 0px 0px;
+      height: 100px;
+     
+   }
+ }

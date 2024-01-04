@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import'./Media-query-stulist.css';
 
 
@@ -12,9 +12,12 @@ import {
   Modal,
   ModalHeader,
   ModalFooter,
+  ModalBody,
 } from "reactstrap" ;
 
-function Studentlist() {
+function Studentslist() {
+  const { id } = useParams();
+  console.log("Student ID:", id);
   
   const [studentList, setStudentList] = useState([]);
   const [deleteId, setDeleteID] = useState("");
@@ -26,7 +29,11 @@ function Studentlist() {
     axios
       .get("https://65773163197926adf62d9e6b.mockapi.io/Results")
       .then((res) => {
-        setStudentList(res.data);
+        const updatedStudentList = res.data.map((student) => ({
+          ...student,
+          total: calculateTotal(student),
+        }));
+        setStudentList(updatedStudentList);
       })
       .catch((err) => {
         console.log(err);
@@ -58,9 +65,12 @@ function Studentlist() {
   };
   // console.log(editData);
   const handleChange = (e) => {
-    // console.log(e.target.name,e.target.value)
-    setEditData({ ...editData, [e.target.name]: e.target.value });
+    setEditData((prevEditData) => ({
+      ...prevEditData,
+      [e.target.name]: e.target.value,
+    }));
   };
+  
   const handleUpdate = () => {
     console.log(editData);
     axios
@@ -69,12 +79,25 @@ function Studentlist() {
         editData
       )
       .then((res) => {console.log(res)
+        const updatedStudentList = studentList.map((student) =>
+        student.id === editData.id ? { ...editData, total: calculateTotal(editData) } : student
+      );
+      setStudentList(updatedStudentList);
         toast.success("updated successfully")
         setEditModal(!editModal)
         fetchStudentList()
       })
       .catch((err) => console.log(err));
+
+      
   };
+  const calculateTotal = (student) => {
+    const subjects = ['maths', 'physics', 'chemistry', 'enggraphics'];
+    return subjects.reduce((acc, subject) => acc + (parseInt(student[subject]) || 0), 0);
+  };
+  
+  
+  
   return (<>
     <div className='container w-75 m-auto d-flex justify-content-center resultedit'>
         <div>Result for April/May Examination,2024</div>
@@ -100,11 +123,12 @@ function Studentlist() {
             <th scope="col">Chemistry</th>
             <th scope="col">E-graphics</th>
             <th scope="col">Total</th>
-            <th scope="col" className=" ">Action</th>
+            <th scope="col" className=" text-center">Action</th>
           </tr>
         </thead>
         <tbody>
           {studentList.map((list, index) => {
+           
             return (
               <tr className="table-success">
                 <th scope="row" className="p-3">{index + 1}</th>
@@ -114,10 +138,10 @@ function Studentlist() {
                 <td >{list.chemistry}</td>
                 <td >{list.enggraphics}</td>
                 <td >{list.total}</td>
-                <td className="d-flex justify-content-center">
+                <td className="text-center">
                   <button
                     class="btn btn-sm btn-primary m-3"
-                    onClick={() => navigate(`/studentslist/${list.id}`)}
+                    onClick={() => navigate(`/viewdata/${list.id}`)}
                   >
                     View
                   </button>
@@ -167,7 +191,7 @@ function Studentlist() {
         <ModalHeader toggle={() => setEditModal(!editModal)}>
           Edit Student
         </ModalHeader>
-        <modalBody>
+        <ModalBody>
           {" "}
           <div className="container ">
             <div className="row">
@@ -237,7 +261,7 @@ function Studentlist() {
               </div>
             </div>
           </div>
-        </modalBody>
+        </ModalBody>
         <ModalFooter>
           <div>
             <button onClick={() => setEditModal(!editModal)}>Cancel</button>
@@ -249,4 +273,4 @@ function Studentlist() {
   );
 }
 
-export default Studentlist;
+export default Studentslist;

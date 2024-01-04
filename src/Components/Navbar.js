@@ -50,6 +50,13 @@ function Navbar() {
                   </a>
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to={'/viewdata'} style={{ textDecoration: 'none' }}>
+                  <a className="nav-link fs-5 fw-semibold" aria-current="page" href="#">
+                    Viewdata
+                  </a>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -62,8 +69,8 @@ function Navbar() {
           Office of the Controller of Examinations
         </div>
       </div>
-      <div className="container w-80 p-5">
-        <div className="d-flex justify-content-center   navedit ">
+      <div className="container text-center w-80 p-5 ">
+        <div className="d-flex justify-content-center  navedit ">
           Welcome to the Office of the Controller of Examinations
         </div>
       </div>

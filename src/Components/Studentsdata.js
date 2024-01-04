@@ -17,9 +17,17 @@ function Studentsdata() {
   });
   const [studentList, setStudentList] = useState([]);
   const handleChange = (e) => {
-    // console.log(e.target.name,e.target.value)
+    
     setNewStudent({ ...newStudent, [e.target.name]: e.target.value });
+    const total = calculateTotal({
+      ...newStudent,
+      [e.target.name]: e.target.value,
+    });
+
+    
+    setNewStudent((prevStudent) => ({ ...prevStudent, total }));
   };
+  
 
   const onSubmit = () => {
     if (newStudent.Name === "") {
@@ -45,6 +53,11 @@ function Studentsdata() {
       .then((res) => {
         console.log(res);
         toast.success("Created Successfully")
+        const total = calculateTotal(res.data);
+        const updatedStudentList = [...studentList, { ...res.data, total }];
+        navigate("/studentslist");
+
+      setStudentList(updatedStudentList);
       })
       .catch((err) => console.log(err));
     setStudentList([...studentList, newStudent]);
@@ -63,7 +76,12 @@ function Studentsdata() {
     toast.success("Removed Successfully");
     navigate("/studentlist")
   };
+  const calculateTotal = (student) => {
+    const subjects = ['maths', 'physics', 'chemistry', 'enggraphics'];
+    return subjects.reduce((acc, subject) => acc + (parseInt(student[subject]) || 0), 0);
+  };
   console.log(newStudent.Name);
+  
 
   return (
     <>
@@ -156,6 +174,7 @@ function Studentsdata() {
           </thead>
           <tbody>
             {studentList.map((list, index) => {
+              const totalSum = calculateTotal(list);
               return (
                 <tr>
                   <th scope="row">{index + 1}</th>
@@ -164,7 +183,7 @@ function Studentsdata() {
                   <td>{list.physics}</td>
                   <td>{list.chemistry}</td>
                   <td>{list.enggraphics}</td>
-                  <td>{list.total}</td>
+                  <td>{totalSum}</td>
                   <td>
                     <button
                       className="btn btn-sm btn-outline-danger rounded-pill"
